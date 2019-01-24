@@ -1,0 +1,21 @@
+syntax="proto2";
+package EPICS;
+
+message FieldValue
+{
+    optional int32 channel=1;
+    required string name=2;
+    oneof val{
+        int32 val=3;
+        sint64 val=7;
+        bytes val=8;
+        sfixed32 val=9;
+        sint32 val=10;
+        float val=11;
+        double val=12;
+
+    }
+    optional int64 nano=4;
+    optional int32 severity=5;
+    optional int32 status=6;
+}
